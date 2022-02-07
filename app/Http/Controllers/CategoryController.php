@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Artical;
-
+use App\Http\Requests\StoreCategoryRequest;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -21,10 +21,18 @@ class CategoryController extends Controller
         return view('categories.create');
     }
 
-    public function store(Request $request){
+    // public function store(Request $request){
+    //     $category=new Category;
+    //     // $category->name = $request->catName;
+    //     $category->updateOrInsert(['name' => $request->catName]);
+    //     return redirect()->route('categories.list');
+    // }
+
+    public function store(StoreCategoryRequest $request){
+        $validated=$request->validated();
         $category=new Category;
-        // $category->name = $request->catName;
-        $category->updateOrInsert(['name' => $request->catName]);
+        $category->name = $validated['catName'];
+        $category->save();
         return redirect()->route('categories.list');
     }
 
@@ -33,9 +41,17 @@ class CategoryController extends Controller
         return view('categories.update',['category'=>$cat]);
     }
 
-    function update(Request $request,$id){
+    // function update(Request $request,$id){
+    //     $cat=Category::find($id);
+    //     $cat->name = $request->catName;
+    //     $cat->update();
+    //     return redirect()->route('categories.list');
+    // }
+
+    function update(StoreCategoryRequest $request,$id){
+        $validated=$request->validated();
         $cat=Category::find($id);
-        $cat->name = $request->catName;
+        $cat->name = $validated['catName'];
         $cat->update();
         return redirect()->route('categories.list');
     }

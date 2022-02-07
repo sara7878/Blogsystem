@@ -10,6 +10,7 @@
 <body>
 
 <div class="container mt-3">
+<h2>Related Category :{{$category->name}}</h2>
     <table class="table">
     <thead>
       <tr>

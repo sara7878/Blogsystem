@@ -15,7 +15,19 @@
     <ul class="navbar-nav">
         @foreach($categories as $cat)
       <li class="nav-item">
-        <a class="nav-link active" href="#cat1">{{$cat->name}}</a>
+        <!-- <a class="nav-link active" href="#cat1"></a> -->
+        <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          {{$cat->name}}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        @foreach($articals as $artical)
+          @if($artical->category_id == $cat->id)
+             <li><a class="dropdown-item" href="#">{{$artical->name}}</a></li>
+         @endif
+         @endforeach
+        </ul>
+      </div>
       </li>
         @endforeach
     </ul>
@@ -45,7 +57,7 @@
        <td>
             <a href="{{route('categories.articles.list', $cat->id)}}"><input class="btn btn-primary mt-5" value="Show Articals" type="submit"></a>
        </td>
-       <td> 
+       <!-- <td> 
         related articles :
          <div class="bg-secondary rounded shadow mt-3">
          <ul>
@@ -56,7 +68,7 @@
          @endforeach  
         </ul>
       </div>
-       </td>
+       </td> -->
       </tr>  
     @endforeach
 

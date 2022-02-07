@@ -17,7 +17,18 @@
       <label for="cat">Category:</label>
       <input type="text" class="form-control" id="cat" placeholder="Enter category" name="catName">
     </div>
+    @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+    @endif
     <button type="submit" class="btn btn-primary">Submit</button>
+
+
   </form>
 </div>
 
