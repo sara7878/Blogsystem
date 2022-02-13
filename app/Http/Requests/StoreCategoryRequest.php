@@ -34,8 +34,6 @@ class StoreCategoryRequest extends FormRequest
             'catName.min' => 'name must be at least 5 char',
             'catName.max' => 'name must be max 10 char',
             'catName.unique' => 'name must be not repeated',
-
-
         ];
     }
 }

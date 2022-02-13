@@ -17,7 +17,7 @@ class ArticalController extends Controller
 
     function listAll(){
         $articals=Artical::with('category')->get();
-        return view('articles.listAll',compact('articals'));
+        return view('dashboard.pages.articals',compact('articals'));
     }
 
     function create($id){
@@ -32,8 +32,12 @@ class ArticalController extends Controller
 
 
     public function store(StoreArticalRequest $request,$id){
+
         $artical=new Artical();
-        $validated=$request->validated();
+        $validated=$request->validated(); 
+    //    if($request->hasFile('upload') && $request->file('upload')->isValid()){
+    //         $img->addMediaFromRequest('upload')->toMediaCollection('upload');
+    //     }
         $artical->updateOrInsert(['name' => $validated['articalName'],'details'=>$validated['artialdesc'],'slug'=>$validated['articalslug'],'category_id'=>$id,'is_used'=>1]);
         return redirect()->route('categories.articles.list',$id);
     }

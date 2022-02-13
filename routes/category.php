@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+// Route::get('/categories',[CategoryController::class,'list'])->name('categories.list')->middleware(['auth','isAdmin']);
 Route::get('/categories',[CategoryController::class,'list'])->name('categories.list')->middleware(['auth','isAdmin']);
 Route::get('/createCategory',[CategoryController::class,'create'])->name('categories.create')->middleware(['auth','isAdmin','age_30']);
 Route::post('/storeCategory',[CategoryController::class,'store'])->name('categories.store');

@@ -11,7 +11,7 @@
 
 <div class="container mt-3">
   <h2>Stacked form</h2>
-  <form method="POST" action="{{route('articles.store',$categoryid)}}">
+  <form method="POST" action="{{route('articles.store',$categoryid)}}" enctype="multipart/form-data">
     <div class="mb-3 mt-3">
     @csrf
       <label for="cat">Artical:</label>
@@ -53,7 +53,7 @@
             </div>
     @endif
     </div>
-
+      UPLOAD : <input type="file" name="upload"> <br>
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

@@ -13,7 +13,7 @@ class CategoryController extends Controller
     function list(){
         $categories=Category::all();
         $articals = Artical::all();
-        return view('categories.list',['categories'=>$categories,'articals'=>$articals]);
+        return view('dashboard.pages.categories',['categories'=>$categories,'articals'=>$articals]);
     }
 
 

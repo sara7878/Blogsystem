@@ -39,10 +39,8 @@
        <a href="{{route('register')}}"><input class="btn btn-secondary mt-5" value="Register" type="submit"></a>
        <a href="{{route('login')}}"><input class="btn btn-secondary mt-5" value="Login" type="submit"></a>
        <a href="{{route('logout')}}"><input class="btn btn-secondary mt-5" value="Logout" type="submit"></a>
-
 </span>
-
-  </div>
+</div>
 </nav>
 <p>Hello {{ auth()->user()->name }}</p>
 
@@ -72,11 +70,11 @@
         related articles :
          <div class="bg-secondary rounded shadow mt-3">
          <ul>
-         @foreach($articals as $artical)
+         {{-- @foreach($articals as $artical)
          @if($artical->category_id == $cat->id)
          <li>{{$artical->name}}</li>
          @endif
-         @endforeach  
+         @endforeach   --}}
         </ul>
       </div>
        </td> -->
