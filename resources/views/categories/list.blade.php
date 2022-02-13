@@ -9,10 +9,14 @@
     <title>Store</title>
 </head>
 <body>
+<x-app-layout>
+    <x-slot name="header">
+
 
 <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
   <div class="container-fluid">
     <ul class="navbar-nav">
+      
         @foreach($categories as $cat)
       <li class="nav-item">
         <!-- <a class="nav-link active" href="#cat1"></a> -->
@@ -31,9 +35,16 @@
       </li>
         @endforeach
     </ul>
+    <span style="float: right;"> 
+       <a href="{{route('register')}}"><input class="btn btn-secondary mt-5" value="Register" type="submit"></a>
+       <a href="{{route('login')}}"><input class="btn btn-secondary mt-5" value="Login" type="submit"></a>
+       <a href="{{route('logout')}}"><input class="btn btn-secondary mt-5" value="Logout" type="submit"></a>
+
+</span>
+
   </div>
 </nav>
-
+<p>Hello {{ auth()->user()->name }}</p>
 
 <div class="container mt-3">
   <table class="table table-hover">
@@ -55,7 +66,7 @@
        </td>
 
        <td>
-            <a href="{{route('categories.articles.list', $cat->id)}}"><input class="btn btn-primary mt-5" value="Show Articals" type="submit"></a>
+            <a href="{{route('categories.articles.list', $cat->id)}}" ><input class="btn btn-primary mt-5" value="Show Articals" type="submit"></a>
        </td>
        <!-- <td> 
         related articles :
@@ -78,7 +89,7 @@
   <a href="{{route('categories.create')}}"><input class="btn btn-primary" value="Add category"></a>
 </div>
 
-
-
+</x-slot>
+</x-app-layout>
 </body>
 </html>

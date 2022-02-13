@@ -15,6 +15,11 @@ class ArticalController extends Controller
         return view('articles.list',['articals'=>$articals,'category_id'=>$id,'category'=>$category]);
     }
 
+    function listAll(){
+        $articals=Artical::with('category')->get();
+        return view('articles.listAll',compact('articals'));
+    }
+
     function create($id){
         return view('articles.create',['categoryid'=>$id]);
     }

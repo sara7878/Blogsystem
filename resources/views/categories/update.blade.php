@@ -14,6 +14,7 @@
   <form method="POST" action="{{route('categories.update',$category->id)}}">
     <div class="mb-3 mt-3">
     @csrf
+    @method('PUT')
       <label for="cat">Category:</label>
       <input type="text" class="form-control" id="cat" placeholder="Enter category" name="catName" value="{{$category->name}}">
     </div>

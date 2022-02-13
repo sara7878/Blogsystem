@@ -20,7 +20,8 @@ class CreateArticalsTable extends Migration
             $table->text('details');
             $table->string('slug')->unique();
             $table->boolean('is_used');
-            $table->foreignIdFor(Category::class);
+            // $table->foreignIdFor(Category::class);
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             
         });

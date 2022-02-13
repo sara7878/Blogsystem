@@ -22,3 +22,6 @@ Route::post('/storeCategory/{id}',[ArticalController::class,'store'])->name('art
 Route::delete('/deleteArtical/{id}',[ArticalController::class,'delete'])->name('articles.delete');
 Route::get('/updateformArtical/{id}',[ArticalController::class,'updateform'])->name('articles.updateform');
 Route::post('/updateArtical/{id}',[ArticalController::class,'update'])->name('articles.update');
+
+
+Route::get('/articals',[ArticalController::class,'listAll'])->name('Allarticles.list');
